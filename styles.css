@@ -1,18 +1,36 @@
+/* Global styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    font-family: Arial, sans-serif;
+    height: 100vh;
+    background-color: #111; /* Darker background for the whole canvas */
+    font-family: 'Arial', sans-serif;
+    color: white; /* White text color */
+}
+
+.app-background {
+    background: #111; /* Darker background for the entire app area */
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3); /* Subtle shadow to separate */
 }
 
 .container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
     text-align: center;
+    align-items: center;
+    background-color: #0056b3; /* Blue container background */
+    padding: 30px;
+    border-radius: 15px;
 }
 
 @media (orientation: landscape) {
@@ -22,28 +40,97 @@ body {
     }
 }
 
+/* Counter styling */
 .counter {
     padding: 20px;
-    border: 2px solid #ccc;
     border-radius: 10px;
-    background-color: #f9f9f9;
+    background-color: #66b3ff; /* Lighter blue for each section */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.counter h1 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
 }
 
 .days {
-    font-size: 2em;
-    color: #333;
+    font-size: 2.5em; /* Adjusted font size */
+    font-weight: bold;
+    color: white; /* White color for the counter text */
+    margin: 15px 0;
+    visibility: hidden;
 }
 
 button {
-    padding: 10px 20px;
-    font-size: 1em;
-    color: #fff;
-    background-color: #007BFF;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    color: white;
+    background-color: #d9534f; /* Red color for buttons */
     border: none;
-    border-radius: 5px;
+    border-radius: 50px; /* Rounded button */
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #c9302c; /* Slightly darker red on hover */
+    transform: scale(1.05); /* Slightly grow on hover */
+}
+
+button:active {
+    transform: scale(0.95); /* Button press effect */
+}
+
+/* Reset effect - Pulse and Shrink */
+.reset-effect {
+    animation: resetPulse 0.6s ease-in-out, resetShrink 0.3s ease-in-out forwards;
+}
+
+@keyframes resetPulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.6;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes resetShrink {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.8);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Blue reset button animation */
+button.reset:active {
+    animation: resetEffect 0.5s ease-in-out;
+}
+
+/* Media Query for better landscape support */
+@media (max-width: 768px) {
+    .counter {
+        width: 200px;
+    }
+
+    .days {
+        font-size: 2.2em; /* Adjusted font size for smaller screens */
+    }
 }
