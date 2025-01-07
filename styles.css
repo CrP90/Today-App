@@ -1,4 +1,3 @@
-/* Global styling */
 * {
     margin: 0;
     padding: 0;
@@ -10,16 +9,21 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #111; /* Darker background for the whole canvas */
+    background-color: #111;
     font-family: 'Arial', sans-serif;
-    color: white; /* White text color */
+    color: white;
 }
 
 .app-background {
-    background: #111; /* Darker background for the entire app area */
-    padding: 40px;
+    background: #111;
+    padding: 15px;
     border-radius: 20px;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3); /* Subtle shadow to separate */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100%;
+    max-width: 100vw;
+    max-height: 100vh;
+    overflow: auto;
 }
 
 .container {
@@ -28,30 +32,37 @@ body {
     gap: 30px;
     text-align: center;
     align-items: center;
-    background-color: #0056b3; /* Blue container background */
+    background-color: #205fa2;
     padding: 30px;
     border-radius: 15px;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
 }
 
 @media (orientation: landscape) {
     .container {
         flex-direction: row;
-        justify-content: center;
+        height: 100%;
     }
 }
 
-/* Counter styling */
 .counter {
     padding: 20px;
     border-radius: 10px;
-    background-color: #66b3ff; /* Lighter blue for each section */
+    background-color: #529be4;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    width: 250px;
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     text-align: center;
+    min-height: 200px;
+    max-height: 100%;
+    overflow: auto;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .counter h1 {
@@ -60,9 +71,9 @@ body {
 }
 
 .days {
-    font-size: 2.5em; /* Adjusted font size */
+    font-size: 2.5em;
     font-weight: bold;
-    color: white; /* White color for the counter text */
+    color: white;
     margin: 15px 0;
     visibility: hidden;
 }
@@ -71,23 +82,22 @@ button {
     padding: 12px 25px;
     font-size: 1.1em;
     color: white;
-    background-color: #d9534f; /* Red color for buttons */
+    background-color: #db5b56;
     border: none;
-    border-radius: 50px; /* Rounded button */
+    border-radius: 50px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-    background-color: #c9302c; /* Slightly darker red on hover */
-    transform: scale(1.05); /* Slightly grow on hover */
+    background-color: #ce2f29;
+    transform: scale(1.05);
 }
 
 button:active {
-    transform: scale(0.95); /* Button press effect */
+    transform: scale(0.95);
 }
 
-/* Reset effect - Pulse and Shrink */
 .reset-effect {
     animation: resetPulse 0.6s ease-in-out, resetShrink 0.3s ease-in-out forwards;
 }
@@ -119,18 +129,41 @@ button:active {
     }
 }
 
-/* Blue reset button animation */
 button.reset:active {
     animation: resetEffect 0.5s ease-in-out;
 }
 
-/* Media Query for better landscape support */
 @media (max-width: 768px) {
     .counter {
-        width: 200px;
+        width: 100%;
+        min-width: 0;
     }
 
     .days {
-        font-size: 2.2em; /* Adjusted font size for smaller screens */
+        font-size: 2.2em;
     }
+
+    .stats {
+        font-size: 0.8em;
+    }
+
+    .counter h1 {
+        font-size: 1.3em;
+    }
+}
+
+.stats {
+    margin-top: 15px;
+    font-size: 0.9em;
+    text-align: left;
+    width: 100%;
+}
+
+.stats ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.stats li {
+    margin-bottom: 5px;
 }

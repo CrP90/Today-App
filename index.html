@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Habit Tracker</title>
+    <meta name="app-identifier" content="habit-tracker-unique-key">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -13,11 +14,13 @@
                 <h1>Days Without Drinking</h1>
                 <div id="drinking-days" class="days">0</div>
                 <button onclick="resetDrinking()">Not Today</button>
+                <div id="drinking-stats" class="stats"></div>
             </div>
             <div class="counter">
                 <h1>Days Without Smoking</h1>
                 <div id="smoking-days" class="days">0</div>
                 <button onclick="resetSmoking()">Not Today</button>
+                <div id="smoking-stats" class="stats"></div>
             </div>
         </div>
     </div>
